@@ -6,14 +6,13 @@ import { Color, Font } from "../../helper";
 export default StyleSheet.create({
     headercontainner: {
         backgroundColor: Color.White,
-        marginTop: -65,
+        marginTop: 120,
     },
     headerTextView: {
         alignSelf: "center",
     },
     tabStyle: {
         flexDirection: "row",
-        marginTop: -40,
         paddingHorizontal: 20,
     },
     icon: {

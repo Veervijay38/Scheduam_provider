@@ -1,5 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
-import { padding } from "styled-system";
+import { padding, paddingBottom } from "styled-system";
 import { Color, Font } from "../../helper";
 
 
@@ -9,14 +9,16 @@ const windowHeight = Dimensions.get('window').height;
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: Color.white
+        backgroundColor: Color.White
     },
     headerBox: {
         flexDirection: 'row',
         alignItems: 'center',
         width: '94%',
         justifyContent: 'space-between',
-        marginLeft: 15
+        marginLeft: 15,
+        position:"absolute",
+        top:-65,
     },
 
 

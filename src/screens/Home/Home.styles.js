@@ -8,7 +8,7 @@ const windowHeight = Dimensions.get('window').height;
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: Color.white
+        backgroundColor: Color.White,
     },
 
     TextTag: {
@@ -28,7 +28,7 @@ export const styles = StyleSheet.create({
         marginLeft: '8%',
         marginTop: '3%'
     },
-
+    buttonView: { position: "absolute", alignSelf: "center", top: Dimensions.get('window').height * 0.8 },
     button: {
         flexDirection: 'row',
         backgroundColor: Color.mainOrange,
@@ -141,7 +141,7 @@ export const styles = StyleSheet.create({
         fontSize: 21,
         color: Color.mainNavyBlue,
         fontWeight: 'bold',
-        
+
     },
     changeModalDateLabel: {
         fontSize: 18,

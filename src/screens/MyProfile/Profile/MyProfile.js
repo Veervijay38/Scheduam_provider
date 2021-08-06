@@ -15,7 +15,6 @@ const MyProfile = (props) => {
         <BaseScreen>
             <View style={styles.container}>
              
-                
               <ScrollView>
                 <View style={{ justifyContent:'center',flexDirection:'column',marginTop:'6%'}}>
                 <Text style={styles.inputTextTag}>Email address</Text>
@@ -56,14 +55,6 @@ const MyProfile = (props) => {
                     </TouchableOpacity>
                     
                 </View>
-
-
-                
-
-               
-
-
-
             </View>
         </BaseScreen>
     )
