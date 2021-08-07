@@ -33,21 +33,21 @@ const JobStarted = (props) => {
     const toggleChangeModal = () => {
         setChangeModalVisible(!changeModallVisible);
     };
-const handleSubmitPress = () => {
-    console.log(CheckBoxValue,"101010");
-    if (CheckBoxValue.Bathroom === true && CheckBoxValue.Bedroom === true &&CheckBoxValue.Kitchen === true && CheckBoxValue.fridge === true && CheckBoxValue.livingroom === true)  {
+    const handleSubmitPress = () => {
+        console.log(CheckBoxValue, "101010");
+        if (CheckBoxValue.Bathroom === true && CheckBoxValue.Bedroom === true && CheckBoxValue.Kitchen === true && CheckBoxValue.fridge === true && CheckBoxValue.livingroom === true) {
 
-        navigation.navigate('CompleteJob')
-    }
-    else{
-        toggleChangeModal();
-    }
-    
+            navigation.navigate('CompleteJob')
+        }
+        else {
+            toggleChangeModal();
+        }
 
-    
-      
-      
-  };
+
+
+
+
+    };
 
 
 
@@ -185,30 +185,23 @@ const handleSubmitPress = () => {
                 <Modal isVisible={changeModallVisible}>
 
                     <View style={styles.changeModalContainer}>
-                        <View style={{ flexDirection: 'row' }}>
-                            <View style={{ paddingTop: 20, paddingLeft: 25 }}>
-                                <Icon
-                                    type={IconType.FontAwesome}
-                                    name='exclamation-triangle'
-                                    size={35}
-                                    color='orange'
-                                    style={{}}
-                                />
-                            </View>
-                            <View style={{ alignSelf: 'center', alignItems: 'center', flexDirection: 'column', marginVertical: 5 }}>
+                        <View style={{ flexDirection: 'row', paddingVertical: 15, justifyContent: 'center' }}>
+                            {/* <View style={{ paddingTop: 20, paddingLeft: 25 }}> */}
+                            <Icon
+                                type={IconType.FontAwesome}
+                                name='exclamation-triangle'
+                                size={35}
+                                color='orange'
+                                containerStyle={{ flex: 0.2 }}
+                            />
 
-                                <Text style={styles.changeModalHeaderText}>You have not</Text>
-                                <Text style={styles.changeModalHeaderText}>completed all of</Text>
-                                <Text style={styles.changeModalHeaderText}>the checklist items.</Text>
-                                <Text style={styles.changeModalHeaderText}>Please confirm all</Text>
-                                <Text style={styles.changeModalHeaderText}>items have been</Text>
-                                <Text style={styles.changeModalHeaderText}>completed.</Text>
-                            </View>
+                            <Text style={styles.changeModalHeaderText}>You have not completed all of the checklist items.Please confirm all items have been completed.</Text>
+
                         </View>
-                        <View style={{ marginVertical: 6}}>
+                        <View style={{ marginVertical: 6 }}>
 
                             <TouchableOpacity onPress={() => { setChangeModalVisible(false) }} style={{ ...styles.modalOkButton, backgroundColor: Color.mainOrange }}>
-                                <Text style={{ color: Color.White,fontFamily:Font.LatoBold,fontWeight:'bold',fontSize:20 }}>OK</Text>
+                                <Text style={{ color: Color.White, fontFamily: Font.LatoBold, fontWeight: 'bold', fontSize: 20 }}>OK</Text>
                             </TouchableOpacity>
                         </View>
 

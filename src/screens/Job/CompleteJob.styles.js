@@ -7,6 +7,7 @@ const windowHeight = Dimensions.get('window').height;
 
 export const styles = StyleSheet.create({
     container: {
+        marginTop: 100,
         flex: 1,
         backgroundColor: Color.white
     },
@@ -18,23 +19,24 @@ export const styles = StyleSheet.create({
     },
     backHeaderContainer: { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 15 },
     backHeaderBox: { flexDirection: 'row', alignItems: 'center' },
-    backHeaderText: { color: Color.Black, fontSize: 20, fontWeight: 'bold',fontFamily:Font.LatoBold },
+    backHeaderText: { color: Color.Black, fontSize: 20, fontWeight: 'bold', fontFamily: Font.LatoBold },
     totalHoursBox: { alignItems: 'center', borderRadius: 10, borderWidth: 1, borderColor: Color.mainOrange, padding: 7, },
-    wellDoneText: { textAlign: 'center', color: Color.Black, marginVertical: 25, fontSize: 20 ,fontWeight:'bold',fontFamily:Font.LatoBold},
+    totalHoursText: { color: Color.Black, fontWeight: 'bold', fontSize: 15 },
+    wellDoneText: { textAlign: 'center', color: Color.Black, marginVertical: 25, fontSize: 20, fontWeight: 'bold', fontFamily: Font.LatoBold },
     jobTimeBox: {
         flexDirection: 'row', alignItems: 'center',
         justifyContent: 'center', backgroundColor: Color.maingreen,
         paddingVertical: 10, marginVertical: 2
     },
-    jobTimeText: { color: Color.White, fontSize: 15, marginLeft: 10,fontWeight:'bold',fontFamily:Font.LatoBold },
-    rateCustomerText: { color: Color.Black, marginVertical: 25, fontSize: 20,fontFamily:Font.LatoBold ,fontWeight:'bold' },
+    jobTimeText: { color: Color.White, fontSize: 15, marginLeft: 10, fontWeight: 'bold', fontFamily: Font.LatoBold },
+    rateCustomerText: { color: Color.Black, marginVertical: 25, fontSize: 20, fontFamily: Font.LatoBold, fontWeight: 'bold' },
     expAndRatingBox: {
         flexDirection: 'row', alignItems: 'center',
         justifyContent: 'space-between',
     },
     expText: {
         color: Color.mainOrange,
-        fontSize: 20, fontWeight: 'bold',fontFamily:Font.LatoBold
+        fontSize: 20, fontWeight: 'bold', fontFamily: Font.LatoBold
     },
     expDesc: {
         paddingVertical: 10,
@@ -54,27 +56,29 @@ export const styles = StyleSheet.create({
     },
 
 
-    button: {
-        flexDirection: 'row',
+    continueBtnView: { justifyContent: 'flex-end', alignSelf: 'flex-end', marginHorizontal: 20, marginVertical: '5%' },
+    continueButton: {
         backgroundColor: Color.mainOrange,
         width: windowWidth * 0.5,
         height: windowWidth * 0.13,
         marginTop: 0,
         borderRadius: 8,
         alignItems: 'center',
-        justifyContent: 'flex-end',
-
+        justifyContent: 'space-between',
+        alignSelf: 'center',
         shadowColor: 'black',
         shadowOpacity: 10,
         elevation: 20,
-        flexDirection: 'row'
+        flexDirection: 'row',
+        paddingRight: 10
+
     },
-    buttonText: {
+    continueButtonText: {
         fontSize: 22,
-        fontFamily: Font.LatoBold,
-        color:Color.White,
-        fontWeight:'bold',
-        
+        fontFamily: Font.OpenSansRegular,
+        color: '#fff',
+        marginBottom: 5,
+        marginLeft: "30%"
     },
     subbox: {
         backgroundColor: '#fff',
@@ -175,7 +179,7 @@ export const styles = StyleSheet.create({
         // padding: 10,
         borderRadius: 5,
         borderWidth: 0.9,
-        borderColor:Color.mainOrange,
+        borderColor: Color.mainOrange,
 
 
         // shadowColor: "black",

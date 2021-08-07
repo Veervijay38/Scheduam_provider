@@ -1,24 +1,27 @@
-import React, { useEffect } from 'react'
-import { Router, Scene, Actions } from 'react-native-router-flux'
-import { BackHandler, ProgressViewIOS, ToastAndroid } from 'react-native';
-import Home from '../screens/Home/Home'
-import SplashScreen from '../screens/SplashScreen'
-import SignIn from '../screens/SignIn'
-import ThankYou from '../screens/ThankYou'
-import CompanyDetails from '../screens/CompanyDetails'
-import SignupHomeScreen from '../screens/SignupHomeScreen'
-import BankDetails from '../screens/BankDetails'
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
-import ProviderSignupScreen from '../screens/ProviderSignUpScreen';
+import React, { useEffect } from 'react';
+import { BackHandler, ToastAndroid } from 'react-native';
+import { Actions, Router, Scene } from 'react-native-router-flux';
+import routes from '../helper/routes';
+import BankDetails from '../screens/BankDetails';
+import ChatScreen from '../screens/Chat';
+import CompanyDetails from '../screens/CompanyDetails';
+import Home from '../screens/Home/Home';
+import CompleteJob from '../screens/Job/CompleteJob';
+import JobDetails from '../screens/Job/JobDetail/JobDetail';
+import JobHistory from '../screens/Job/JobHistory/JobHistory';
+import JobStarted from '../screens/Job/JobStarted/JobStarted';
+import Mytabs from '../screens/MyProfile';
 import Availability from '../screens/MyProfile/Availability/Availability';
 import MyProfile from '../screens/MyProfile/Profile/MyProfile';
-import JobDetails from '../screens/Job/JobDetail/JobDetail';
-import JobStarted from '../screens/Job/JobStarted/JobStarted';
-import routes from '../helper/routes';
-import ChatScreen from '../screens/Chat';
-import CompleteJob from '../screens/Job/CompleteJob'
-import Mytabs from '../screens/MyProfile';
+import PartnerEarning from '../screens/PartnerEarning/PartnerEarning';
+import PartnerOffers from '../screens/PartnerOffers/PartnerOffers';
+import PartnerOffersDetails from '../screens/PartnerOffers/PartnerOffersDetails/PartnerOffersDetails';
+import ProviderSignUpScreen from '../screens/ProviderSignUpScreen';
+import SignIn from '../screens/SignIn';
+import SignupSelectionScreen from '../screens/SignupSelectionScreen';
+import SplashScreen from '../screens/SplashScreen';
+import ThankYou from '../screens/ThankYou';
+
 
 
 var backCount = 0
@@ -54,20 +57,31 @@ const App = (props) => {
         <Router>
             <Scene key="root" hideNavBar>
                 <Scene key={routes.SPLASH_SCREEN} component={SplashScreen} title="SplashScreen" initial />
-                <Scene key={routes.PROVIDER_HOME} component={Home} title="Home" />
+                <Scene key={routes.PROVIDER_HOME} component={Home} title="Home" initial />
+
                 <Scene key={routes.SIGNIN_SCREEN} component={SignIn} title="SignIn" />
-                <Scene key={routes.Signup_Home} component={SignupHomeScreen} title="SignHomeScreen" />
-                <Scene key={routes.Bank_Details} component={BankDetails} title="BankDetails" />
+                <Scene key={routes.SIGNUP_SELECTION_SCREEN} component={SignupSelectionScreen} title="SignHomeScreen" />
+                <Scene key={routes.PROVIDER_SIGNUP_SCREEN} component={ProviderSignUpScreen} title="SignHomeScreen" />
                 <Scene key={routes.Company_Details} component={CompanyDetails} title="CompanyDetails" />
+
+                <Scene key={routes.Availability} component={Availability} hideNavBar />
+                <Scene key={routes.Bank_Details} component={BankDetails} title="BankDetails" />
                 <Scene key={routes.Thank_You} component={ThankYou} title="ThankYou" />
-                <Scene key={routes.Provider_Signup} component={ProviderSignupScreen} title="ProviderSignupScreen" />
+
+                {/* <Scene key={routes.Provider_Signup} component={ProviderSignupScreen} title="ProviderSignupScreen" /> */}
                 <Scene key={routes.Top_Tab} component={Mytabs} hideNavBar />
                 <Scene key={routes.MyProfile} component={MyProfile} hideNavBar />
-                <Scene key={routes.Availability} component={Availability} hideNavBar />
+
+                <Scene key={routes.Chat_Screen} component={ChatScreen} title="ChatScreen" />
                 <Scene key={routes.Job_Details} component={JobDetails} title="JobDetails" />
                 <Scene key={routes.Job_Started} component={JobStarted} title="JobStarted" />
-                <Scene key={routes.Chat_Screen} component={ChatScreen} title="ChatScreen" />
                 <Scene key={routes.Complete_Job} component={CompleteJob} title="CompleteJob" />
+                <Scene key={routes.JOB_HISTORY} component={JobHistory} title="Job History" />
+
+                <Scene key={routes.PARTNER_EARNING} component={PartnerEarning} title="Partner Earning" />
+                <Scene key={routes.PARTNER_OFFERS} component={PartnerOffers} title="Partner Offers" initial />
+                <Scene key={routes.PARTNER_OFFERS_DETAILS} component={PartnerOffersDetails} title="Partner Offers" />
+
             </Scene>
         </Router>
     )

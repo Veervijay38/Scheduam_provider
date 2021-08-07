@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, ImageBackground, FlatList, Dimensions, TextInput } from 'react-native'
 import { Color, Font } from '../helper'
-import { HStack,Center, NativeBaseProvider } from "native-base"
+import { HStack, Center, NativeBaseProvider } from "native-base"
 import Images from '../assets/images'
 import { Icon, CheckBox } from "react-native-elements";
 import { BaseScreen, AuthInput } from '../components';
+import CustomHeaderLogo from '../components/Header/CustomerHeaderLogo/CustomerHeaderLogo'
+import { IconType } from '../helper/iconType'
+import routes from '../helper/routes'
 
 
 
@@ -12,87 +15,85 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const BankDetails = (props) => {
+    const navigation = props.navigation;
     const [CheckBoxValue, setCheckBoxValue] = useState({
-       checked: true
+        checked: true
     })
 
 
     return (
-        <NativeBaseProvider>
-            <BaseScreen>
-                <View style={styles.container}>
-                    <View style={{ alignItems: 'center', width: '100%', height: '12%', marginBottom:0}} >
-                        <Image source={require("../assets/images/common/logo.png")}
-                            style={{ height: '100%', width: "50%" }}
-                            resizeMode='contain' />
 
-                    </View>
+        <BaseScreen>
+            <CustomHeaderLogo />
+            <View style={styles.container}>
 
-
-                    <ScrollView>
+                <ScrollView showsVerticalScrollIndicator={false}>
                     <View style={{ justifyContent: 'center', flexDirection: 'column', marginTop: '1%' }}>
                         <Text style={styles.TextTag}>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </Text>
+                        </Text>
                         <Text style={styles.TextTag}>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in.
-                </Text>
-                    </View>
-  
-                    <View style={{ justifyContent: 'center', flexDirection: 'column', marginTop: '-2%' }}>
+                        </Text>
+
+
+
                         <Text style={styles.inputTextTag}>Bank</Text>
                         <TextInput style={styles.textInputStyle}>
 
                         </TextInput>
-                    </View>
-                    <View style={{ justifyContent: 'center', flexDirection: 'column', marginTop: '-2%' }}>
+
+
                         <Text style={styles.inputTextTag}>Account Number</Text>
                         <TextInput style={styles.textInputStyle}>
 
                         </TextInput>
-                    </View>
-                    <View style={{ justifyContent: 'center', flexDirection: 'column', marginTop: '-2%' }}>
+
+
                         <Text style={styles.inputTextTag}>Branch Code / Routing number</Text>
                         <TextInput style={styles.textInputStyle}>
 
                         </TextInput>
-                    </View>
-                    <View style={{ justifyContent: 'center', flexDirection: 'column', marginTop: '-2%' }}>
+
+
                         <Text style={styles.inputTextTag}>SWIFT Code</Text>
                         <TextInput style={styles.textInputStyle}>
                         </TextInput>
-                        <View style={{ justifyContent: 'center', flexDirection: 'row', alignItems: 'center', marginTop: 10,marginRight:15 }}>
-                        <CheckBox
-                                        containerStyle={{ backgroundColor: '#FFFFFF', borderWidth: 0 }}
-                                        title='I have read and accept the terms and conditions'
-                                        checked={CheckBoxValue.checked}
-                                        checkedColor={Color.mainOrange}
-                                        textStyle={{color:Color.mainOrange}}
-                                        onPress={() => setCheckBoxValue({ ...CheckBoxValue, checked: !CheckBoxValue.checked })}
-                                    /> 
-                        
+                        <View style={{ justifyContent: 'center', flexDirection: 'row', alignItems: 'center', marginTop: 10, marginRight: 15 }}>
+                            <CheckBox
+                                containerStyle={{ backgroundColor: '#FFFFFF', borderWidth: 0 }}
+                                title='I have read and accept the terms and conditions'
+                                checked={CheckBoxValue.checked}
+                                checkedColor={Color.mainOrange}
+                                textStyle={{ color: Color.mainOrange }}
+                                onPress={() => setCheckBoxValue({ ...CheckBoxValue, checked: !CheckBoxValue.checked })}
+                            />
+
 
 
                         </View>
-                       
-                    </View>
-                    </ScrollView>
-                    <View style={{ justifyContent: 'center', marginBottom: '5%', marginLeft: '38%', }}>
-                        <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate('ThankYou')}>
-                            <Text style={styles.buttonText}>Coutinue </Text>
-                            <Icon type='antdesign' name='right' size={18} color={Color.White} style={{paddingRight:10}}/>
-                        </TouchableOpacity>
 
                     </View>
-
+                </ScrollView>
+                <View style={styles.continueBtnView}>
+                    <TouchableOpacity
+                        style={styles.continueButton}
+                        onPress={() => navigation.navigate(routes.Thank_You)}>
+                        <Text style={styles.continueButtonText}>Coutinue </Text>
+                        <Icon type={IconType.Antdesign} name='right' size={18} color={Color.White} />
+                    </TouchableOpacity>
 
                 </View>
-            </BaseScreen>
-        </NativeBaseProvider>
+
+
+            </View>
+        </BaseScreen>
+
     )
 }
 
 
 const styles = StyleSheet.create({
     container: {
+        marginTop: 100,
         flex: 1,
         backgroundColor: Color.white
     },
@@ -101,8 +102,8 @@ const styles = StyleSheet.create({
         marginLeft: '6%',
         marginBottom: 8,
         fontFamily: Font.LatoBold,
-        color:Color.mainOrange,
-        fontWeight:'bold',
+        color: Color.mainOrange,
+        fontWeight: 'bold',
         fontSize: 17
 
     },
@@ -111,9 +112,9 @@ const styles = StyleSheet.create({
         marginLeft: '6%',
         marginBottom: 8,
         fontFamily: Font.LatoBold,
-        color:Color.Black,
+        color: Color.Black,
         fontSize: 16,
-        fontWeight:'bold'
+        fontWeight: 'bold'
 
     },
     textInputStyle: {
@@ -123,19 +124,20 @@ const styles = StyleSheet.create({
         // padding: 10,
         borderRadius: 5,
         borderWidth: 1,
-        borderColor:Color.mainOrange,
+        borderColor: Color.mainOrange,
         alignSelf: 'center',
-        color:Color.Black,
-        fontWeight:'bold',
-        fontFamily:Font.LatoBold
-        
+        color: Color.Black,
+        fontWeight: 'bold',
+        fontFamily: Font.LatoBold
+
     },
 
-    button: {
-        backgroundColor:Color.mainOrange,
+    continueBtnView: { justifyContent: 'flex-end', alignSelf: 'flex-end', marginHorizontal: 20, marginVertical: '5%' },
+    continueButton: {
+        backgroundColor: Color.mainOrange,
         width: windowWidth * 0.5,
         height: windowWidth * 0.13,
-        marginBottom: 0,
+        marginTop: 0,
         borderRadius: 8,
         alignItems: 'center',
         justifyContent: 'space-between',
@@ -143,18 +145,16 @@ const styles = StyleSheet.create({
         shadowColor: 'black',
         shadowOpacity: 10,
         elevation: 20,
-        flexDirection:'row',
-        paddingRight:0,
-        paddingLeft:0
-
+        flexDirection: 'row',
+        paddingRight: 10
 
     },
-    buttonText: {
+    continueButtonText: {
         fontSize: 22,
         fontFamily: Font.OpenSansRegular,
         color: '#fff',
-        marginBottom:5,
-        marginLeft:"20%"
+        marginBottom: 5,
+        marginLeft: "30%"
     },
 
 })

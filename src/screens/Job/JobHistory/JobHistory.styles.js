@@ -1,5 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
-import { Color, Font } from "../../helper";
+import { Color, Font } from "../../../helper";
 
 
 const windowWidth = Dimensions.get('window').width;
@@ -7,18 +7,19 @@ const windowHeight = Dimensions.get('window').height;
 
 export const styles = StyleSheet.create({
     container: {
-        marginTop: 100,
         flex: 1,
-        backgroundColor: Color.White,
+        backgroundColor: Color.White
     },
+    subContainer: { paddingHorizontal: 20, marginTop: 100, backgroundColor: 'pink', },
 
     TextTag: {
-        marginVertical: '8%',
+
         textAlign: 'center',
         fontFamily: Font.LatoBold,
         color: Color.Black,
         fontSize: 25,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        textAlign: 'left'
 
     },
     listHeaderText: {
@@ -29,7 +30,7 @@ export const styles = StyleSheet.create({
         marginLeft: '8%',
         marginTop: '3%'
     },
-    buttonView: { alignSelf: "center", },
+
     button: {
         flexDirection: 'row',
         backgroundColor: Color.mainOrange,
@@ -45,8 +46,6 @@ export const styles = StyleSheet.create({
         elevation: 20,
     },
     buttonText: {
-        flex: 0.8,
-        textAlign: 'center',
         fontSize: 22,
         fontFamily: Font.Font,
         color: '#fff'
@@ -64,9 +63,9 @@ export const styles = StyleSheet.create({
 
     },
     innerCardContainer: {
-        backgroundColor: '#fff',
-        width: windowWidth * 0.90,
-        height: windowWidth * 0.20,
+        backgroundColor: Color.mainOrange,
+        // width: windowWidth * 0.90,
+        // height: windowWidth * 0.22,
         borderRadius: 10,
         // borderWidth: 1,
         // borderColor: 'black',
@@ -93,43 +92,38 @@ export const styles = StyleSheet.create({
         borderTopLeftRadius: 10,
         borderBottomLeftRadius: 10
     },
-    custNameText: { marginHorizontal: 10, fontSize: 20, fontWeight: 'bold', color: Color.White },
-    dateText: { marginHorizontal: 10, fontSize: 13, fontWeight: 'bold', color: Color.White },
+    custNameText: { marginHorizontal: 10, fontSize: 28, fontWeight: 'bold', color: Color.White },
+    dateText: { marginHorizontal: 10, marginVertical: 10, fontSize: 15, fontWeight: 'bold', color: Color.White },
     card: {
-        height: '100%',
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: Color.mainLightOrange,
-        borderTopLeftRadius: 10,
-        borderBottomLeftRadius: 10,
-        // borderWidth: 0.5,
-        // borderColor: 'black',
-
+        borderRadius: 10,
+        borderWidth: 0.5,
+        borderColor: 'black',
+        width: '13%'
     },
-    chatCardStyle: {
-        height: '100%',
+    invoiceStyle: {
         backgroundColor: Color.mainDarkBrown,
         alignItems: 'center',
         justifyContent: 'center',
-        borderTopLeftRadius: 10,
-        borderBottomLeftRadius: 10,
-        // borderWidth: 0.5,
-        // borderColor: 'black',
+        borderRadius: 10,
+        borderWidth: 0.5,
+        borderColor: 'black',
+        width: '15%',
     },
     changeCardStyle: {
-        height: '100%',
         backgroundColor: Color.mainOrange,
         alignItems: 'center',
         justifyContent: 'center',
         borderTopLeftRadius: 10,
         borderBottomLeftRadius: 10,
-        // borderWidth: 0.5,
-        // borderColor: 'black',
-
+        borderWidth: 0.5,
+        borderColor: 'black',
+        width: '13%'
     },
     // Modal Styles
     changeModalContainer: {
-        // width: '80%',alignSelf:'center'
         backgroundColor: Color.White,
         borderColor: Color.mainNavyBlue,
         borderWidth: 2,
@@ -165,7 +159,6 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'space-between',
     },
-    changeModalDateText: { color: Color.Black, fontWeight: 'bold' },
     cancelModalButtonText: { color: Color.White, fontWeight: 'bold', fontSize: 18 },
     modalOkButton: {
         width: '40%', paddingVertical: 15,

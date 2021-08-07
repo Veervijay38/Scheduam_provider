@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, ImageBackground, FlatList, Dimensions, TextInput } from 'react-native'
 import { Color, Font } from '../helper'
 import { BaseScreen } from '../components';
+import routes from '../helper/routes';
 
 
 const windowWidth = Dimensions.get('window').width;
@@ -12,13 +13,13 @@ const SignIn = (props) => {
         <BaseScreen>
             <View style={styles.container}>
                 <View style={{ alignItems: 'center', width: '100%', height: '35%' }} >
-                <Image source={require("../assets/images/common/logo.png")}
+                    <Image source={require("../assets/images/common/logo.png")}
                         style={{ height: '100%', width: "65%" }}
                         resizeMode='contain' />
 
                 </View>
                 <View style={{ alignItems: 'center' }}>
-                    <Text style={{ fontSize: 25, color:Color.Black, fontFamily: Font.LatoBold,fontWeight:'bold'}}>Login</Text>
+                    <Text style={{ fontSize: 25, color: Color.Black, fontFamily: Font.LatoBold, fontWeight: 'bold' }}>Login</Text>
                 </View>
 
                 <View>
@@ -46,12 +47,12 @@ const SignIn = (props) => {
                 </View>
 
                 <View style={{ justifyContent: 'center', alignItems: 'center', height: '8%' }} >
-                    <Text style={{ fontSize: 16, color:Color.mainOrange, fontFamily: Font.LatoBold,fontWeight:'bold' }} > Forgot Password? </Text>
+                    <Text style={{ fontSize: 16, color: Color.mainOrange, fontFamily: Font.LatoBold, fontWeight: 'bold' }} > Forgot Password? </Text>
                 </View>
 
                 <View style={{ justifyContent: 'center', alignItems: 'center', height: '8%' }} >
-                <TouchableOpacity style={{}} onPress={() => props.navigation.navigate('SignupHomeScreen')} >
-                    <Text style={{ fontSize: 16, fontFamily: Font.LatoBold , color:Color.Black,fontWeight:'900' }} > Not registered? Signup here </Text>
+                    <TouchableOpacity style={{}} onPress={() => props.navigation.navigate(routes.SIGNUP_SELECTION_SCREEN)} >
+                        <Text style={{ fontSize: 16, fontFamily: Font.LatoBold, color: Color.Black, fontWeight: '900' }} > Not registered? Signup here </Text>
                     </TouchableOpacity>
                 </View>
 
@@ -83,9 +84,9 @@ const styles = StyleSheet.create({
         marginBottom: 8,
         fontFamily: Font.LatoBold,
         // fontWeight: 'bold',
-        color:Color.mainOrange,
-        fontWeight:'bold',
-        fontFamily:Font.LatoBold
+        color: Color.mainOrange,
+        fontWeight: 'bold',
+        fontFamily: Font.LatoBold
 
     },
     textInputStyle: {
@@ -97,13 +98,13 @@ const styles = StyleSheet.create({
         borderWidth: 0.9,
         borderColor: Color.mainOrange,
         alignSelf: 'center',
-        color:Color.Black,
-        fontWeight:'bold',
-        fontFamily:Font.LatoBold
+        color: Color.Black,
+        fontWeight: 'bold',
+        fontFamily: Font.LatoBold
     },
 
     button: {
-        backgroundColor:Color.mainOrange,
+        backgroundColor: Color.mainOrange,
         width: windowWidth * 0.9,
         height: windowWidth * 0.14,
         marginTop: 20,
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontFamily: Font.LatoBold,
         color: '#fff',
-        fontWeight:'bold'
+        fontWeight: 'bold'
     },
 
 })

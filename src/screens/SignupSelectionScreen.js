@@ -4,47 +4,55 @@ import { Color, Font } from '../helper'
 import Images from '../assets/images'
 import { Icon, Col } from "native-base";
 import { BaseScreen } from '../components';
+import routes from '../helper/routes';
 
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-const SignupHomeScreen = (props) => {
+const SignupSelectionScreen = (props) => {
 
     return (
         <BaseScreen>
             <View style={styles.container}>
-                <View style={{ alignItems: 'center', width: '100%', height: '20%' }} >
+                <View style={{ alignItems: 'center', }} >
                     <Image source={require("../assets/images/common/logo.png")}
-                        style={{ height: '140%', width: "50%" }}
+                        style={{ height: 150, width: "50%" }}
                         resizeMode='contain' />
 
                 </View>
-                <View style={{justifyContent:'center', alignItems:'center', height:'25%'}} >
-                    <Text style={{fontSize:25, color:Color.Black, fontFamily:Font.LatoBold,fontWeight:'bold'}} > Signup </Text>
-                </View>
-                
+                {/* <View style={{ justifyContent: 'center', alignItems: 'center', }} > */}
+                <Text style={{
+                    fontSize: 25,
+                    color: Color.Black,
+                    fontFamily: Font.LatoBold,
+                    fontWeight: 'bold', textAlign: 'center'
+                }} > Signup </Text>
+                {/* </View> */}
 
-                <View style={{height:'38%', justifyContent:'center',flexDirection:'column'}}>
+
+                <View >
                     <TouchableOpacity style={styles.button}>
-                    <Text style={styles.buttonText}>Customer</Text>
+                        <Text style={styles.buttonText}>Customer</Text>
 
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate('ProviderSignUpScreen')}>
-                    <Text style={styles.buttonText}>Service Partner</Text>
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={() => props.navigation.navigate(routes.PROVIDER_SIGNUP_SCREEN)}>
+                        <Text style={styles.buttonText}>Service Partner</Text>
 
                     </TouchableOpacity>
                 </View>
 
 
-                
 
-               
+
+
 
 
 
             </View>
-        </BaseScreen>
+        </BaseScreen >
     )
 }
 
@@ -68,8 +76,8 @@ const styles = StyleSheet.create({
         height: windowWidth * 0.10,
         // padding: 10,
         borderRadius: 10,
-        borderWidth:1,
-        borderColor:'blue',
+        borderWidth: 1,
+        borderColor: 'blue',
         alignSelf: 'center',
         // shadowColor: "black",
         // shadowOpacity: 0.8,
@@ -84,25 +92,26 @@ const styles = StyleSheet.create({
     button: {
         backgroundColor: Color.mainOrange,
         width: windowWidth * 0.9,
-        height: windowWidth * 0.50,
+        paddingVertical: 50,
+        // height: windowWidth * 0.4,
         marginTop: 50,
         borderRadius: 10,
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'center',
-        shadowColor:'black',
+        shadowColor: 'black',
         shadowOpacity: 10,
-        elevation:20
-      
-     
+        elevation: 20
+
+
     },
     buttonText: {
         fontSize: 22,
-    fontFamily: Font.LatoBold,
+        fontFamily: Font.LatoBold,
         color: '#fff',
-        fontWeight:'bold'
+        fontWeight: 'bold'
     },
 
 })
 
-export default SignupHomeScreen;
+export default SignupSelectionScreen;

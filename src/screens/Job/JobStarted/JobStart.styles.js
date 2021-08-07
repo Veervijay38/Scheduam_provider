@@ -9,7 +9,7 @@ const windowHeight = Dimensions.get('window').height;
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:Color.White
+        backgroundColor: Color.White
     },
     backHeaderContainer: { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 15 },
     backHeaderBox: { flexDirection: 'row', alignItems: 'center' },
@@ -63,7 +63,7 @@ export const styles = StyleSheet.create({
         fontSize: 22,
         fontFamily: Font.LatoBold,
         color: '#fff',
-        fontWeight:'bold'
+        fontWeight: 'bold'
     },
     subbox: {
         backgroundColor: '#fff',
@@ -128,22 +128,25 @@ export const styles = StyleSheet.create({
 
     },
     changeModalContainer: {
+
         backgroundColor: Color.White,
         borderColor: Color.mainNavyBlue,
         borderWidth: 2,
         borderRadius: 10,
-        flexDirection:'column',
+        flexDirection: 'column',
         paddingVertical: 0,
         paddingHorizontal: 0,
-        height:'40%'
+
     },
-    
+
     changeModalHeaderText: {
-        fontSize: 22,
+        textAlign: 'center',
+        flex: 0.8,
+        fontSize: 20,
         color: Color.Black,
         fontWeight: 'bold',
-     
-        
+
+
     },
     changeModalDateLabel: {
         fontSize: 22,
@@ -151,12 +154,12 @@ export const styles = StyleSheet.create({
         color: Color.mainOrange,
         marginVertical: 5,
     },
-    
-   
+
+
     modalOkButton: {
         width: '50%', paddingVertical: 9,
         borderRadius: 8, justifyContent: 'center',
-        alignItems: 'center', alignSelf: 'center',shadowColor: "black",
+        alignItems: 'center', alignSelf: 'center', shadowColor: "black",
         shadowOpacity: 0.9,
         shadowRadius: 3,
         shadowOffset: {

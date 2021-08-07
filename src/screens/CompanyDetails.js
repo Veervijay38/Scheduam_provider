@@ -1,123 +1,124 @@
-import React, { useEffect, useState } from 'react'
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView, ImageBackground, FlatList, Dimensions, TextInput } from 'react-native'
-import { Color, Font } from '../helper'
-import Images from '../assets'
+import React, { useState } from 'react';
+import { Dimensions, Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { CheckBox, Icon } from 'react-native-elements';
-import { BaseScreen, AuthInput } from '../components';
-import { Actions } from 'react-native-router-flux';
-import SplashScreen from './SplashScreen';
-import { fontSize } from 'styled-system';
+import { BaseScreen } from '../components';
+import CustomHeaderLogo from '../components/Header/CustomerHeaderLogo/CustomerHeaderLogo';
+import { Color, Font } from '../helper';
+import { IconType } from '../helper/iconType';
+import routes from '../helper/routes';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const CompanyDetails = (props) => {
+    const navigation = props.navigation
     const [CheckBoxValue, setCheckBoxValue] = useState({
         Homecleaning: true, OfficeCleaning: true,
-        Driver : true, Plumber: true,
-        GeneratorTechnician: true, Maid: true ,Electrician: true,
+        Driver: true, Plumber: true,
+        GeneratorTechnician: true, Maid: true, Electrician: true,
     })
 
     return (
         <BaseScreen>
+            <CustomHeaderLogo />
             <View style={styles.container}>
-                <View style={{ alignItems: 'center', width: '100%', height: '5%', marginBottom: 40 }} >
-                    <Image source={require("../assets/images/common/logo.png")}
-                        style={{ height: '280%', width: "50%" }}
-                        resizeMode='contain' />
 
-                </View>
+                <ScrollView showsVerticalScrollIndicator={false}>
 
-
-
-
-
-                <View style={{ justifyContent: 'center', flexDirection: 'column', marginTop: '2%' }}>
                     <Text style={styles.inputTextTag}>Company / trade name
-                </Text>
-                    <TextInput style={styles.textInputStyle}
-                    >
+                    </Text>
+                    <TextInput style={styles.textInputStyle} />
 
-                    </TextInput>
-                </View>
-                <View style={{ justifyContent: 'center', flexDirection: 'column', marginTop: '-3%' }}>
+
+
                     <Text style={styles.inputTextTag}>NIN / BVN</Text>
                     <TextInput style={styles.textInputStyle}>
 
                     </TextInput>
-                </View>
-                <View style={{ justifyContent: 'center', flexDirection: 'column', marginTop: '-3%' }}>
+
+
                     <Text style={styles.inputTextTag}>Years of experience</Text>
                     <TextInput style={styles.textInputStyle}>
 
                     </TextInput>
-                </View>
-                <View style={{ justifyContent: 'center', flexDirection: 'column', marginTop: '-3%' }}>
-                    <Text style={styles.inputTextTag}>Service Offered</Text>
-                    <View style={styles.servicebox}>
-                        <View style={{marginVertical:20}}>
-                    <CheckBox
-                        containerStyle={{ paddingVertical: 0, backgroundColor: 'white', borderWidth: 0, }}
-                        title={<Text style={styles.plantext}>Home cleaning</Text>}
-                        checkedColor={Color.Black}
-                        checked={CheckBoxValue.Homecleaning}
-                        onPress={() => setCheckBoxValue({ ...CheckBoxValue, Homecleaning: !CheckBoxValue.Homecleaning })}
-                    />
-                    <CheckBox
-                        containerStyle={{ paddingVertical: 0, backgroundColor: 'white', borderWidth: 0, }}
-                        title={<Text style={styles.plantext}>Driver</Text>}
-                        checkedColor={Color.Black}
-                        checked={CheckBoxValue.Driver}
-                        onPress={() => setCheckBoxValue({ ...CheckBoxValue, Driver: !CheckBoxValue.Driver })}
-                    />
-                    <CheckBox
-                        containerStyle={{ paddingVertical: 0, backgroundColor: 'white', borderWidth: 0, }}
-                        title={<Text style={styles.plantext}>Plumber</Text>}
-                        checkedColor={Color.Black}
-                        checked={CheckBoxValue.Plumber}
-                        onPress={() => setCheckBoxValue({ ...CheckBoxValue, Plumber: !CheckBoxValue.Plumber })}
-                    />
-                    <CheckBox
-                        containerStyle={{ paddingVertical: 0, backgroundColor: 'white', borderWidth: 0, }}
-                        title={<Text style={styles.plantext}>Electrician</Text>}
-                        checkedColor={Color.Black}
-                        checked={CheckBoxValue.Electrician}
-                        on
-                        Press={() => setCheckBoxValue({ ...CheckBoxValue, Electrician: !CheckBoxValue.Electrician })}
-                    />
-                    </View>
-                    <View style={{width:'50%',marginVertical:20}}>
-                    <CheckBox
-                        containerStyle={{ paddingVertical: 0, backgroundColor: 'white', borderWidth: 0, }}
-                        title={<Text style={styles.plantext}>Office cleaning</Text>}
-                        checkedColor={Color.Black}
-                        checked={CheckBoxValue.OfficeCleaning}
-                        onPress={() => setCheckBoxValue({ ...CheckBoxValue, OfficeCleaning: !CheckBoxValue.OfficeCleaning })}
-                    />
-                    <CheckBox
-                        containerStyle={{ paddingVertical: 0, backgroundColor: 'white', borderWidth: 0, }}
-                        title={<Text style={styles.plantext}>Maid</Text>}
-                        checkedColor={Color.Black}
-                        checked={CheckBoxValue.Maid}
-                        onPress={() => setCheckBoxValue({ ...CheckBoxValue, Maid: !CheckBoxValue.Maid })}
-                    />
-                    <CheckBox
-                        containerStyle={{ paddingVertical: 0, backgroundColor: 'white', borderWidth: 0, }}
-                        title={<Text style={styles.plantext}>Generator Technician</Text>}
-                        checkedColor={Color.Black}
-                        checked={CheckBoxValue.GeneratorTechnician}
-                        onPress={() => setCheckBoxValue({ ...CheckBoxValue, GeneratorTechnician: !CheckBoxValue.GeneratorTechnician})}
-                    />
-                    </View>
-                    
-                    </View>
 
-                </View>
-                <View style={{ justifyContent: 'center', marginTop: '5%', marginLeft: '40%', }}>
-                    <TouchableOpacity style={styles.button}
-                    onPress={() => props.navigation.navigate('Availability')} >
-                        <Text style={styles.buttonText}>Coutinue </Text>
+                    <View style={{ justifyContent: 'center', flexDirection: 'column', marginTop: '-3%' }}>
+                        <Text style={styles.inputTextTag}>Service Offered</Text>
+                        <View style={styles.servicebox}>
+                            <View style={{ marginVertical: 20 }}>
+                                <CheckBox
+                                    containerStyle={styles.checkBoxContainer}
+                                    title={<Text style={styles.plantext}>Home cleaning</Text>}
+                                    checkedColor={Color.Black}
+                                    checked={CheckBoxValue.Homecleaning}
+                                    onPress={() => setCheckBoxValue({ ...CheckBoxValue, Homecleaning: !CheckBoxValue.Homecleaning })}
+                                />
+                                <CheckBox
+                                    containerStyle={styles.checkBoxContainer}
+                                    title={<Text style={styles.plantext}>Driver</Text>}
+                                    checkedColor={Color.Black}
+                                    checked={CheckBoxValue.Driver}
+                                    onPress={() => setCheckBoxValue({ ...CheckBoxValue, Driver: !CheckBoxValue.Driver })}
+                                />
+                                <CheckBox
+                                    containerStyle={styles.checkBoxContainer}
+                                    title={<Text style={styles.plantext}>Plumber</Text>}
+                                    checkedColor={Color.Black}
+                                    checked={CheckBoxValue.Plumber}
+                                    onPress={() => setCheckBoxValue({ ...CheckBoxValue, Plumber: !CheckBoxValue.Plumber })}
+                                />
+                                <CheckBox
+                                    containerStyle={styles.checkBoxContainer}
+                                    title={<Text style={styles.plantext}>Electrician</Text>}
+                                    checkedColor={Color.Black}
+                                    checked={CheckBoxValue.Electrician}
+                                    on
+                                    Press={() => setCheckBoxValue({ ...CheckBoxValue, Electrician: !CheckBoxValue.Electrician })}
+                                />
+                            </View>
+                            <View style={{ width: '50%', marginVertical: 20 }}>
+                                <CheckBox
+                                    containerStyle={styles.checkBoxContainer}
+                                    title={<Text style={styles.plantext}>Office cleaning</Text>}
+                                    checkedColor={Color.Black}
+                                    checked={CheckBoxValue.OfficeCleaning}
+                                    onPress={() => setCheckBoxValue({ ...CheckBoxValue, OfficeCleaning: !CheckBoxValue.OfficeCleaning })}
+                                />
+                                <CheckBox
+                                    containerStyle={styles.checkBoxContainer}
+                                    title={<Text style={styles.plantext}>Maid</Text>}
+                                    checkedColor={Color.Black}
+                                    checked={CheckBoxValue.Maid}
+                                    onPress={() => setCheckBoxValue({ ...CheckBoxValue, Maid: !CheckBoxValue.Maid })}
+                                />
+                                <CheckBox
+                                    containerStyle={styles.checkBoxContainer}
+                                    title={<Text style={styles.plantext}>Generator Technician</Text>}
+                                    checkedColor={Color.Black}
+                                    checked={CheckBoxValue.GeneratorTechnician}
+                                    onPress={() => setCheckBoxValue({ ...CheckBoxValue, GeneratorTechnician: !CheckBoxValue.GeneratorTechnician })}
+                                />
+                            </View>
 
+                        </View>
+
+                    </View>
+                    {/* <View style={{ justifyContent: 'center', marginTop: '5%', marginLeft: '40%', }}>
+                        <TouchableOpacity style={styles.button}
+                            onPress={() => props.navigation.navigate('Availability')} >
+                            <Text style={styles.buttonText}>Coutinue </Text>
+
+                        </TouchableOpacity>
+
+                    </View> */}
+
+                </ScrollView>
+                <View style={styles.continueBtnView}>
+                    <TouchableOpacity
+                        style={styles.continueButton}
+                        onPress={() => navigation.navigate(routes.Availability)}>
+                        <Text style={styles.continueButtonText}>Coutinue </Text>
+                        <Icon type={IconType.Antdesign} name='right' size={18} color={Color.White} />
                     </TouchableOpacity>
 
                 </View>
@@ -126,17 +127,15 @@ const CompanyDetails = (props) => {
 
 
 
-
-
-
             </View>
-        </BaseScreen>
+        </BaseScreen >
     )
 }
 
 
 const styles = StyleSheet.create({
     container: {
+        marginTop: 100,
         flex: 1,
         backgroundColor: Color.white
     },
@@ -147,7 +146,7 @@ const styles = StyleSheet.create({
         fontFamily: Font.LatoBold,
         color: Color.mainOrange,
         fontSize: 17,
-        fontWeight:'bold'
+        fontWeight: 'bold'
 
     },
     TextTag: {
@@ -168,48 +167,50 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: Color.mainOrange,
         alignSelf: 'center',
-        color:Color.Black,
-        fontWeight:'bold',
-        fontFamily:Font.LatoBold
-        
-        
-    },
+        color: Color.Black,
+        fontWeight: 'bold',
+        fontFamily: Font.LatoBold
 
-    button: {
+
+    },
+    continueBtnView: { justifyContent: 'flex-end', alignSelf: 'flex-end', marginHorizontal: 20, marginVertical: '5%' },
+    continueButton: {
         backgroundColor: Color.mainOrange,
         width: windowWidth * 0.5,
         height: windowWidth * 0.13,
         marginTop: 0,
         borderRadius: 8,
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         alignSelf: 'center',
         shadowColor: 'black',
         shadowOpacity: 10,
-        elevation: 20
-
+        elevation: 20,
+        flexDirection: 'row',
+        paddingRight: 10
 
     },
-    buttonText: {
+    continueButtonText: {
         fontSize: 22,
-        fontWeight:'bold',
-        fontFamily: Font.LatoBold,
-        color: '#fff'
+        fontFamily: Font.OpenSansRegular,
+        color: '#fff',
+        marginBottom: 5,
+        marginLeft: "30%"
     },
     servicebox: {
         backgroundColor: '#fff',
         width: windowWidth * 0.9,
         height: windowWidth * 0.75,
-         padding: 5,
+        padding: 5,
         borderRadius: 5,
         borderWidth: 1,
         borderColor: Color.mainOrange,
         alignSelf: 'center',
-        flexDirection:'row'
-        
-       
-    },
+        flexDirection: 'row'
 
+
+    },
+    checkBoxContainer: { paddingVertical: 0, backgroundColor: 'white', borderWidth: 0, },
 })
 
 export default CompanyDetails;

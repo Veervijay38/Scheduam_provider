@@ -7,8 +7,9 @@ const windowHeight = Dimensions.get('window').height;
 
 export const styles = StyleSheet.create({
     container: {
+        marginTop: 100,
         flex: 1,
-        backgroundColor:Color.White
+        backgroundColor: Color.White
     },
     backHeaderContainer: { flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 15 },
     backHeaderBox: { flexDirection: 'row', alignItems: 'center' },
@@ -18,7 +19,7 @@ export const styles = StyleSheet.create({
 
     addressLabel: { color: Color.Black, fontWeight: 'bold', fontFamily: Font.OpenSansRegular, fontSize: 22, },
     addressDescView: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' },
-    addressValue: { color: Color.mainOrange, fontFamily: Font.OpenSansRegular, fontSize: 22, fontWeight: 'bold' },
+    addressValue: { color: Color.mainOrange, fontFamily: Font.OpenSansRegular, fontSize: 18, fontWeight: 'bold' },
     PriceTextTag: {
         fontFamily: Font.LatoBold,
         color: '#79cb8f',
@@ -122,7 +123,7 @@ export const styles = StyleSheet.create({
         color: Color.mainOrange,
         fontWeight: 'bold',
         fontFamily: Font.OpenSansRegular,
-        fontSize: 22,
+        fontSize: 18,
 
     },
     container1: {
@@ -131,11 +132,11 @@ export const styles = StyleSheet.create({
         width: 400,
         justifyContent: 'flex-end',
         alignItems: 'center',
-      },
-      map: {
+    },
+    map: {
         ...StyleSheet.absoluteFillObject,
-      },
-     
+    },
+
 
 
 })

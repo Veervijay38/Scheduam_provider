@@ -4,22 +4,20 @@ import { Color, Font } from '../helper'
 import Images from '../assets'
 import { Icon, Col } from "native-base";
 import { BaseScreen, AuthInput } from '../components';
+import CustomHeaderLogo from '../components/Header/CustomerHeaderLogo/CustomerHeaderLogo';
+import routes from '../helper/routes';
 
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-const ThankYou = () => {
-
+const ThankYou = (props) => {
+    const navigation = props.navigation;
     return (
         <BaseScreen>
+            <CustomHeaderLogo />
             <View style={styles.container}>
-                <View style={{ alignItems: 'center', width: '100%', height: '20%', marginBottom: '0%' }} >
-                    <Image source={require("../assets/images/common/logo.png")}
-                        style={{ height: '100%', width: "65%" }}
-                        resizeMode='contain' />
 
-                </View>
 
 
                 <ScrollView>
@@ -34,7 +32,7 @@ const ThankYou = () => {
 
 
                     <View style={{ justifyContent: 'center', marginVertical: '25%', }}>
-                        <TouchableOpacity style={styles.button}>
+                        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(routes.PROVIDER_HOME)}>
                             <Text style={styles.buttonText}>Coutinue </Text>
 
                         </TouchableOpacity>
@@ -56,6 +54,7 @@ const ThankYou = () => {
 
 const styles = StyleSheet.create({
     container: {
+        marginTop: 100,
         flex: 1,
         backgroundColor: Color.white
     },
@@ -74,7 +73,7 @@ const styles = StyleSheet.create({
         marginBottom: 8,
         fontFamily: Font.LatoBold,
         color: Color.Black,
-        fontWeight:'bold',
+        fontWeight: 'bold',
         fontSize: 17
 
     },
@@ -116,7 +115,7 @@ const styles = StyleSheet.create({
         fontSize: 22,
         fontFamily: Font.LatoBold,
         color: '#fff',
-        fontWeight:'bold'
+        fontWeight: 'bold'
     },
 
 })

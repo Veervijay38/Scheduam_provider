@@ -4,6 +4,7 @@ import { Color, Font } from '../helper'
 
 import { BaseScreen, AuthInput } from '../components';
 import SignIn from './SignIn';
+import routes from '../helper/routes';
 
 
 const windowWidth = Dimensions.get('window').width;
@@ -20,18 +21,18 @@ const SplashScreen = (props) => {
                         resizeMode='contain' />
 
                 </View>
-                
 
-                <View style={{height:'30%', justifyContent:'flex-end'}}>
-                    <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate('SignIn')} >
-                    <Text style={styles.buttonText}>Login</Text>
+
+                <View style={{ height: '30%', justifyContent: 'flex-end' }}>
+                    <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate(routes.SIGNIN_SCREEN)} >
+                        <Text style={styles.buttonText}>Login</Text>
 
                     </TouchableOpacity>
                 </View>
 
-                <View style={{justifyContent:'center', alignItems:'center', height:'8%'}} >
-                <TouchableOpacity style={{}} onPress={() => props.navigation.navigate('SignupHomeScreen')}  >
-                    <Text style={{fontSize:16, color:Color.Black, fontFamily:Font.LatoBold,fontWeight:'bold'}} > Not registered? Signup here </Text>
+                <View style={{ justifyContent: 'center', alignItems: 'center', height: '8%' }} >
+                    <TouchableOpacity style={{}} onPress={() => props.navigation.navigate(routes.SIGNUP_SELECTION_SCREEN)}  >
+                        <Text style={{ fontSize: 16, color: Color.Black, fontFamily: Font.LatoBold, fontWeight: 'bold' }} > Not registered? Signup here </Text>
                     </TouchableOpacity>
                 </View>
 
@@ -62,14 +63,14 @@ const styles = StyleSheet.create({
         height: windowWidth * 0.12,
         // padding: 10,
         borderRadius: 5,
-        borderWidth:1,
-        borderColor:'blue',
+        borderWidth: 1,
+        borderColor: 'blue',
         alignSelf: 'center',
-       
+
     },
 
     button: {
-        backgroundColor:Color.mainOrange,
+        backgroundColor: Color.mainOrange,
         width: windowWidth * 0.9,
         height: windowWidth * 0.12,
         marginTop: 20,
@@ -81,9 +82,9 @@ const styles = StyleSheet.create({
     },
     buttonText: {
         fontSize: 22,
-    fontFamily: Font.LatoBold,
+        fontFamily: Font.LatoBold,
         color: '#fff',
-        fontWeight:'bold'
+        fontWeight: 'bold'
     },
 
 })
