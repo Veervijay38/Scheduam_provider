@@ -59,7 +59,7 @@ const SignIn = (props) => {
 
 
                 <View>
-                    <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate('Home')} >
+                    <TouchableOpacity style={styles.button} onPress={() => props.navigation.navigate(routes.AUTH_NAVIGATOR)} >
                         <Text style={styles.buttonText}>Login</Text>
 
                     </TouchableOpacity>

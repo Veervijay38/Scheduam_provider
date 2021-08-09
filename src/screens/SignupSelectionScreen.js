@@ -21,35 +21,30 @@ const SignupSelectionScreen = (props) => {
                         resizeMode='contain' />
 
                 </View>
-                {/* <View style={{ justifyContent: 'center', alignItems: 'center', }} > */}
-                <Text style={{
-                    fontSize: 25,
-                    color: Color.Black,
-                    fontFamily: Font.LatoBold,
-                    fontWeight: 'bold', textAlign: 'center'
-                }} > Signup </Text>
-                {/* </View> */}
 
+                <ScrollView showsVerticalScrollIndicator={false}>
+                    <Text style={{
+                        marginTop: 50,
+                        fontSize: 25,
+                        color: Color.Black,
+                        fontFamily: Font.LatoBold,
+                        fontWeight: 'bold', textAlign: 'center'
+                    }} > Signup </Text>
 
-                <View >
-                    <TouchableOpacity style={styles.button}>
-                        <Text style={styles.buttonText}>Customer</Text>
+                    <View >
+                        <TouchableOpacity style={styles.button}>
+                            <Text style={styles.buttonText}>Customer</Text>
 
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={() => props.navigation.navigate(routes.PROVIDER_SIGNUP_SCREEN)}>
-                        <Text style={styles.buttonText}>Service Partner</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.button}
+                            onPress={() => props.navigation.navigate(routes.PROVIDER_SIGNUP_SCREEN)}>
+                            <Text style={styles.buttonText}>Service Partner</Text>
 
-                    </TouchableOpacity>
-                </View>
+                        </TouchableOpacity>
+                    </View>
 
-
-
-
-
-
-
+                </ScrollView>
 
             </View>
         </BaseScreen >

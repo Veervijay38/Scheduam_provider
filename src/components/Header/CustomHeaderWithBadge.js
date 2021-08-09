@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 
 import { Image, TouchableOpacity, View, Text } from 'react-native';
@@ -6,12 +7,13 @@ import { Color } from '../../helper';
 import { IconType } from '../../helper/iconType';
 import { styles } from './CustomHeaderWithBadge.styles';
 
-
-const CustomHeaderWithBadge = () => {
-
+//const navigation = useNavigation();
+const CustomHeaderWithBadge = (props) => {
+    console.log("CustomHeader Prop ===>", props)
+    const navigation = useNavigation()
     return (
         <View style={[styles.headerBox]} >
-            <Icon type={IconType.EnTypo} name='menu' size={35} color={Color.mainOrange} />
+            <Icon onPress={() => navigation.openDrawer()} type={IconType.EnTypo} name='menu' size={35} color={Color.mainOrange} />
             <View style={{ alignItems: 'center', width: '50%' }} >
 
                 <Image source={require("../../assets/images/common/logo.png")}

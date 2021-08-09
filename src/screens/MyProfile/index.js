@@ -10,6 +10,7 @@ import { BaseScreen } from '../../components';
 import { Color } from '../../helper';
 import Style from "./Style";
 import CustomHeaderWithBadge from "../../components/Header/CustomHeaderWithBadge";
+import TabAvailability from "./TabAvailability/TabAvailability";
 const Mytabs = (props) => {
     console.log("tabs", props)
     const [selectedTab, setSelectedTab] = useState(0);
@@ -23,7 +24,7 @@ const Mytabs = (props) => {
     return (
         <>
             <BaseScreen>
-                <CustomHeaderWithBadge />
+                <CustomHeaderWithBadge {...props} />
                 <View>
                     <View style={Style.headercontainner}>
                         <View style={Style.tabStyle}>
@@ -78,7 +79,7 @@ const Mytabs = (props) => {
                     </View>
                 </View>
                 <View style={{ flex: 1, backgroundColor: '#eeee' }}>
-                    {selectedTab == 0 ? <MyProfile /> : <Availability />}
+                    {selectedTab == 0 ? <MyProfile /> : <TabAvailability />}
                 </View>
             </BaseScreen>
         </>

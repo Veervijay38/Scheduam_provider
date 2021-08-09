@@ -9,10 +9,11 @@ import { IconType } from '../../helper/iconType';
 import routes from '../../helper/routes';
 import { styles } from './Home.styles';
 import CustomHeaderWithBadge from "../../components/Header/CustomHeaderWithBadge";
+import { useNavigation } from "@react-navigation/native";
 
 
-const Home = ({ navigation }) => {
-    // const navigation = useNavigation()
+const Home = (props) => {
+    const navigation = useNavigation()
     const todayData = [
         {
             header: `Today's Jobs`,
@@ -49,7 +50,7 @@ const Home = ({ navigation }) => {
     return (
 
         <BaseScreen>
-            <CustomHeaderWithBadge />
+            <CustomHeaderWithBadge {...props} />
             <View style={styles.container}>
 
 
@@ -64,7 +65,7 @@ const Home = ({ navigation }) => {
                                 <Text style={styles.listHeaderText}>{item.header}</Text>
                                 {item.data.map((item, index) =>
                                     <TouchableOpacity
-                                        onPress={() => { navigation.navigate(routes.Job_Details, { Data: item }) }}
+                                        onPress={() => { navigation.navigate(routes.Job_Details, { item }) }}
                                         style={styles.innerCardContainer}
                                         key={index}
                                     >
@@ -149,7 +150,7 @@ const Home = ({ navigation }) => {
 
             </View>
             <View style={styles.buttonView}>
-                <TouchableOpacity onPress={() => { navigation.navigate(routes.Top_Tab) }}
+                <TouchableOpacity onPress={() => { navigation.navigate(routes.All_Jobs) }}
                     style={styles.button} >
 
 

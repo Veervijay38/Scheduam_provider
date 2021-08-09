@@ -32,7 +32,7 @@ const ThankYou = (props) => {
 
 
                     <View style={{ justifyContent: 'center', marginVertical: '25%', }}>
-                        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(routes.PROVIDER_HOME)}>
+                        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(routes.HOME_NAVIGATOR)}>
                             <Text style={styles.buttonText}>Coutinue </Text>
 
                         </TouchableOpacity>

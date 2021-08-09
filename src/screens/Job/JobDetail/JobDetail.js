@@ -1,24 +1,23 @@
-import { NativeBaseProvider } from "native-base";
-import React, { useState, } from 'react';
-import { Dimensions, Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { CheckBox, Icon } from 'react-native-elements';
-import { BaseScreen } from '../../../components';
-import { Color, Font } from '../../../helper';
-import { IconType } from '../../../helper/iconType';
-import { styles } from './JobDetail.styles';
 import { useNavigation } from '@react-navigation/native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
-import routes from "../../../helper/routes";
+import React, { useState } from 'react';
+import { Dimensions, Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { Icon } from 'react-native-elements';
+import { BaseScreen } from '../../../components';
 import CustomHeaderLogo from "../../../components/Header/CustomerHeaderLogo/CustomerHeaderLogo";
+import CustomHeaderWithBadge from '../../../components/Header/CustomHeaderWithBadge';
+import { Color } from '../../../helper';
+import { IconType } from '../../../helper/iconType';
+import routes from "../../../helper/routes";
+import { styles } from './JobDetail.styles';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const JobDetail = (props) => {
-    console.log("10 19 JobDetail Props ===>", props)
+    console.log("10 19 JobDetail Props ===>", props.route.params.item)
     // console.log("10 19 JobDetail Props ===>", item)
-    const navigation = props.navigation
-    const custDetail = props.Data
+    const navigation = useNavigation();
+    const custDetail = props.route.params.item
     console.log("10 19 JobDetail Props ===>", custDetail)
     const [CheckBoxValue, setCheckBoxValue] = useState({
         Bedroom: true, Bathroom: true,
@@ -30,7 +29,7 @@ const JobDetail = (props) => {
 
     return (
         <BaseScreen>
-            <CustomHeaderLogo />
+            <CustomHeaderWithBadge {...props} />
             <View style={styles.container}>
                 {/* Back button Start */}
                 <View style={styles.backHeaderContainer} >
@@ -40,7 +39,7 @@ const JobDetail = (props) => {
                     </View>
                     <View style={styles.totalHoursBox}>
                         <Text style={styles.totalHoursText}>3.5 hours</Text>
-                        <Text style={styles.totalHoursText}>3000</Text>
+                        <Text style={styles.totalHoursText}>{'\u20A6'}  3000</Text>
                     </View>
 
                 </View>
@@ -110,7 +109,7 @@ const JobDetail = (props) => {
                             style={{ height: '100%', width: "100%", alignSelf: 'center' }}
                             resizeMode='contain' />
                     </View>
-                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(routes.Job_Started, { Data: custDetail })}>
+                    <TouchableOpacity style={styles.button} onPress={() => navigation.navigate(routes.Job_Started, { item: custDetail })}>
                         <Text style={styles.buttonText}>Start Job </Text>
                     </TouchableOpacity>
 

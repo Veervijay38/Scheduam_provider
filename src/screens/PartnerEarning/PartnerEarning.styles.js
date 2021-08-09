@@ -4,7 +4,7 @@ import { Color } from "../../helper";
 export const styles = StyleSheet.create({
     container: { flex: 1, backgroundColor: Color.White },
     subContainer: { paddingHorizontal: 20, marginTop: 100, },
-    earningBox: { flexDirection: 'row', marginVertical: 10 },
+    earningBox: { flexDirection: 'row', marginTop: 20 },
     withdrawalBox: {
         alignItems: 'center', backgroundColor: Color.mainOrange,
         flex: 0.5, height: 150, paddingHorizontal: 5,

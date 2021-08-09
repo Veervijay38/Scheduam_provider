@@ -1,3 +1,4 @@
+import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 import { Alert, FlatList } from 'react-native';
 import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
@@ -12,9 +13,9 @@ import routes from '../../../helper/routes';
 import { styles } from './PartnerOffersDetails.styles';
 
 const PartnerOffersDetails = (props) => {
-    const navigation = props.navigation
-    const offerData = props.offerData
-    console.log("PartnerOfferDetail ===>", offerData)
+    const navigation = useNavigation();
+    const offerData = props.route.params.item;
+
     const OfferData = [{
         id: 1,
         offerName: "Gareth Jones",
@@ -37,6 +38,7 @@ const PartnerOffersDetails = (props) => {
         offerPrice: 3500,
         completeIn: '4 hours'
     }];
+
     const reviewData = [{
         id: 1,
         partnerName: 'Partner A',
@@ -63,7 +65,7 @@ const PartnerOffersDetails = (props) => {
     return (
         <BaseScreen>
             <View style={styles.container}>
-                <CustomHeaderWithBadge />
+                <CustomHeaderWithBadge {...props} />
                 <ScrollView style={styles.subContainer}>
                     <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
                         <View style={{ flexDirection: 'row', alignItems: 'center' }} >

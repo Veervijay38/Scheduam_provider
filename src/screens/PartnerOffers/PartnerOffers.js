@@ -37,7 +37,7 @@ const PartnerOffers = (props) => {
     }]
     return (
         <BaseScreen>
-            <CustomHeaderWithBadge />
+            <CustomHeaderWithBadge {...props} />
             <View style={styles.container}>
 
                 <View style={styles.subContainer}>
@@ -52,7 +52,7 @@ const PartnerOffers = (props) => {
                         renderItem={({ item }) => {
                             return (
                                 <TouchableOpacity style={styles.earningBox}
-                                    onPress={() => navigation.navigate(routes.PARTNER_OFFERS_DETAILS, { offerData: item })}
+                                    onPress={() => navigation.navigate(routes.PARTNER_OFFERS_DETAILS, { item })}
                                 >
 
                                     <View style={styles.earningBox1}>

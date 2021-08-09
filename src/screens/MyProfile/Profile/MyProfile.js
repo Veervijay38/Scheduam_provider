@@ -6,13 +6,15 @@ import { Icon, CheckBox } from "react-native-elements";
 import { BaseScreen } from '../../../components';
 import { IconType } from '../../../helper/iconType';
 import routes from '../../../helper/routes';
+import { useNavigation } from '@react-navigation/native';
 
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const MyProfile = (props) => {
-    const navigation = props.navigation;
+
+    const navigation = useNavigation()
     return (
         <BaseScreen>
             <View style={styles.container}>
@@ -42,7 +44,7 @@ const MyProfile = (props) => {
                 <View style={styles.continueBtnView}>
                     <TouchableOpacity
                         style={styles.continueButton}
-                        onPress={() => navigation.navigate(routes.PROVIDER_HOME)}>
+                        onPress={() => navigation.navigate(routes.AUTH_NAVIGATOR)}>
                         <Text style={styles.continueButtonText}>Update </Text>
                         <Icon type={IconType.Antdesign} name='right' size={18} color={Color.White} />
                     </TouchableOpacity>

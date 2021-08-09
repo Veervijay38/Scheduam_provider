@@ -14,7 +14,7 @@ const windowHeight = Dimensions.get('window').height;
 
 const ChatScreen = (props) => {
     const navigation = props.navigation
-    const custDetail = props.Data
+    // const custDetail = props.Data
 
     return (
         <KeyboardAvoidingView
@@ -25,7 +25,7 @@ const ChatScreen = (props) => {
             }}
         >
             <BaseScreen>
-                <CustomHeaderWithBadge />
+                <CustomHeaderWithBadge {...props} />
                 <View style={styles.container}>
 
 
@@ -38,8 +38,8 @@ const ChatScreen = (props) => {
 
                     <View style={styles.MainContainer}>
                         <View style={styles.custDetailView}>
-                            <Text style={styles.custDescText}>Customer: {custDetail.custName}</Text>
-                            <Text style={styles.custDescText}>Offer: {custDetail.date}</Text>
+                            <Text style={styles.custDescText}>Customer: Gareth Jones</Text>
+                            <Text style={styles.custDescText}>Offer: Thursday 1 July 2021,</Text>
                         </View>
 
                         <View style={styles.chatViewContainer}>

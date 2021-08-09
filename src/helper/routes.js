@@ -12,6 +12,8 @@ export default {
     MyProfile: "My Profile",
     Thank_You: "ThankYou",
     Provider_Signup: "ProviderSignUpScreen",
+
+    All_Jobs: "All_Job_Screen",
     Job_Details: "JobDetails",
     Job_Started: "Jobstarted",
     JOB_HISTORY: "Job_History",
@@ -22,6 +24,11 @@ export default {
     PARTNER_EARNING: 'PartnerEarning',
     PARTNER_OFFERS: 'PartnerOffers',
     PARTNER_OFFERS_DETAILS: 'PartnerOffersDetails',
+    HELP_SCREEN: 'Help',
+    LEGAL_SCREEN: 'Legal',
+    SETTING_SCREEN: 'Settings_screen',
 
+    HOME_NAVIGATOR: "Home_navigator",
+    AUTH_NAVIGATOR: "Auth_navigator",
 
 };

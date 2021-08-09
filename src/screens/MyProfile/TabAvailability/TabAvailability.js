@@ -12,7 +12,7 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 
-const Availability = (props) => {
+const TabAvailability = (props) => {
 
     const navigation = useNavigation();
 
@@ -26,16 +26,12 @@ const Availability = (props) => {
     return (
 
         <BaseScreen>
-            <CustomHeaderLogo />
+            {/* <CustomHeaderLogo /> */}
             <View style={styles.container}>
                 <ScrollView showsVerticalScrollIndicator={false} >
                     <View style={{ marginHorizontal: 5, paddingHorizontal: 5 }}>
                         <View>
-                            <Text style={{
-                                fontFamily: Font.LatoBold,
-                                color: Color.Black,
-                                fontSize: 17, fontWeight: 'bold'
-                            }}>Availability</Text>
+
 
                             <View style={{ alignItems: 'center', justifyContent: 'space-between', flexDirection: 'row', }}>
 
@@ -306,8 +302,8 @@ const Availability = (props) => {
                 <View style={styles.continueBtnView}>
                     <TouchableOpacity
                         style={styles.continueButton}
-                        onPress={() => navigation.navigate(routes.Bank_Details)}>
-                        <Text style={styles.continueButtonText}>Coutinue </Text>
+                        onPress={() => navigation.navigate(routes.AUTH_NAVIGATOR)}>
+                        <Text style={styles.continueButtonText}>Update </Text>
                         <Icon type={IconType.Antdesign} name='right' size={18} color={Color.White} />
                     </TouchableOpacity>
 
@@ -321,9 +317,9 @@ const Availability = (props) => {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 100,
+        // marginTop: 100,
         flex: 1,
-        backgroundColor: Color.white
+        backgroundColor: Color.white, paddingVertical: 15
     },
     inputTextTag: {
         // marginTop: 18,
@@ -465,4 +461,4 @@ const styles = StyleSheet.create({
 
 
 
-export default Availability;
+export default TabAvailability;

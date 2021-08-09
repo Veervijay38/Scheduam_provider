@@ -26,7 +26,7 @@ const CompleteJob = (props) => {
     return (
 
         <BaseScreen>
-            <CustomHeaderWithBadge />
+            <CustomHeaderWithBadge {...props} />
             <View style={styles.container}>
 
 
@@ -39,7 +39,7 @@ const CompleteJob = (props) => {
                         </View>
                         <View style={styles.totalHoursBox}>
                             <Text style={styles.totalHoursText}>3.5 hours</Text>
-                            <Text style={styles.totalHoursText}>3000</Text>
+                            <Text style={styles.totalHoursText}>{'\u20A6'}  3000</Text>
                         </View>
 
                     </View>

@@ -57,7 +57,7 @@ const JobHistory = (props) => {
 
         <BaseScreen>
             <View style={styles.container}>
-                <CustomHeaderWithBadge />
+                <CustomHeaderWithBadge {...props} />
                 <View style={styles.subContainer}>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Icon

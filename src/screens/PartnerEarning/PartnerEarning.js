@@ -4,11 +4,12 @@ import { Icon } from 'react-native-elements';
 import CustomHeaderWithBadge from '../../components/Header/CustomHeaderWithBadge';
 import { Color } from '../../helper';
 import { IconType } from '../../helper/iconType';
-import { styles } from './PartnerEarning.styles'
-const PartnerEarning = () => {
+import { styles } from './PartnerEarning.styles';
+
+const PartnerEarning = (props) => {
     return (
         <View style={styles.container}>
-            <CustomHeaderWithBadge />
+            <CustomHeaderWithBadge {...props} />
             <View style={styles.subContainer}>
                 <View style={{ flexDirection: 'row', alignItems: 'center' }} >
                     <Icon type={IconType.MaterialCommunity} name='currency-usd-circle-outline' size={25} color={Color.Black} />
